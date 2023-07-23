@@ -1,0 +1,47 @@
+{% extends 'front/base.html' %}
+{% block title %}郁金香{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/CSS/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="passage">
+        <div class="passage-box">
+            <ul class="ul1">
+                {% for post in posts %}
+                    <li class="li1">
+                        <a href="{{ url_for("front.post_detail", post_id=post.id) }}">
+                            <h1>{{ post.title }}</h1>
+                        </a>
+                        <div class="passage-top">
+                            <span><img src="{{ url_for('static',filename='images/作者.png') }}"
+                                       alt=""> 作者：{{ post.author.username }}</span>
+                            <span><img src="{{ url_for('static',filename='images/标签.png') }}"
+                                       alt="">&nbsp;板块：{{ post.board.name }}</span>
+                        </div>
+                        <div class="passage-bottom">
+                            <span><img src="{{ url_for('static',filename='images/date.png') }}"
+                                       alt="">发表时间：{{ post.create_time }}</span>
+                            <span><img src="{{ url_for('static',filename='images/书.png') }}"
+                                       alt="">&nbsp;阅读量：{{ post.read_count }}</span>
+                        </div>
+                        <div class="passage-body">
+                            {{ post.content|truncate(length=200) }}......
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="page">
+                {{ pagination.links }}
+                <form action="/">
+                    <span>&nbsp;第</span>
+                    <input type="text" name="page">
+                    <span>页</span>
+                    <button>确认
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

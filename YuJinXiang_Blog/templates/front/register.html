@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tulip</title>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='front/CSS/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='front/CSS/register.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='front/CSS/sign.css') }}">
+<script src="{{ url_for('static', filename='front/JS/register.js') }}"></script>
+<script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
+
+<body>
+<!-- 导航栏 -->
+<div class="nav" style="">
+    <a style="text-decoration:none;" href="{{ url_for('front.index') }}" class="hd">
+        <h2 style="font-size: 1.5em;margin: 12px auto;font-weight: 700;">Welcome to Tulip</h2>
+    </a>
+</div>
+<!-- 内容 -->
+<div class="login">
+    <br><br><br><br>
+    <form class="form" action="{{ url_for('user.register') }}" method="post" id="register-form">
+        <p id="heading">注&nbsp;册</p>
+        <div class="field">
+            <img class="input-icon" src="{{ url_for('static', filename='images/massage1-fill.png') }}" width="16"
+                 height="16" fill="currentColor" viewBox="0 0 16 16">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input autocomplete="off" placeholder="邮箱" class="input-field" type="text" name="email">
+            <button class="button2" id="captcha-btn">获&nbsp;取</button>
+        </div>
+        <div class="field">
+            <img class="input-icon" src="{{ url_for('static', filename='images/验证 验证码.png') }}" width="16"
+                 height="16" fill="currentColor" viewBox="0 0 16 16">
+            <input autocomplete="off" placeholder="邮箱验证码" class="input-field" type="text" name="email_captcha">
+        </div>
+        <div class="field">
+            <img class="input-icon" src="{{ url_for('static', filename='images/个人头像.png') }}" width="16"
+                 height="16" fill="currentColor" viewBox="0 0 16 16">
+            <input placeholder="用户名" class="input-field" type="text" name="username">
+        </div>
+        <div class="field">
+            <img class="input-icon" src="{{ url_for('static', filename='images/密码.png') }}" width="16" height="16"
+                 fill="currentColor" viewBox="0 0 16 16">
+            <input placeholder="密码" class="input-field" type="password" name="password">
+        </div>
+        <div class="field">
+            <img class="input-icon" src="{{ url_for('static', filename='images/密码.png') }}" width="16" height="16"
+                 fill="currentColor" viewBox="0 0 16 16">
+            <input placeholder="确认密码" class="input-field" type="password" name="confirm_password">
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="form-group">
+                    <ul>
+                        {% for message in messages %}
+                            <li class="text-danger">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="btn">
+            <button class="button1">&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;册&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+        <br>
+    </form>
+</div>
+</body>
+
+</html>

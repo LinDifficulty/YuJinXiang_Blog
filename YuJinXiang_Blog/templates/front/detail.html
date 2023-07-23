@@ -1,0 +1,68 @@
+{% extends 'front/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}"/>
+    <script src="{{ url_for('static',filename='front/js/jquery.3.6.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/prettify.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/raphael.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/underscore.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/sequence-diagram.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/jquery.flowchart.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/lib/marked.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/detail.css') }}">
+    <script type="text/javascript">
+        $(function () {
+            var editor = editormd.markdownToHTML("test-editor", {
+                width: "100%",
+                height: "500px",
+                readOnly: true,
+                path: "/static/editormd/lib/",
+                editor: false,
+                watch: true
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="passage">
+        <div class="left">
+            <h2><img src="{{ url_for('static', filename='uploads/头像 男孩.png') }}" alt=""></h2>
+            <div class="detail">
+                <div><img src="{{ url_for('static', filename='images/作者.png') }}" alt="">
+                    作者：{{ post.author.username }}</div>
+                <div><img src="{{ url_for('static', filename='images/标签1.png') }}" alt="">&nbsp;板块：<a
+                        href="{{ url_for("front.index",board_id=post.board.id) }}">{{ post.board.name }}</a></div>
+                <div><img src="{{ url_for('static', filename='images/date.png') }}"
+                          alt="">&nbsp;发布时间：<br>{{ post.create_time }}</div>
+                <div><img src="{{ url_for('static', filename='images/书.png') }}"
+                          alt="">&nbsp;阅读量：{{ post.read_count }}</div>
+            </div>
+
+            {% if user and user.id == post.author_id or user.is_staff %}
+                <div class="button">
+                    <form action="{{ url_for('front.edit_post') }}" method="post">
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+                        <button class="button-edit">编辑
+                        </button>
+                    </form>
+                    <form action="{{ url_for('front.delete_post') }}" method="post">
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+                        <button class="button-delete">删除
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+        <div class="note">
+            <h1>{{ post.title }}</h1>
+            <div id="test-editor">
+                <textarea style="display:none;">{{ post.content }}</textarea>
+            </div>
+        </div>
+    </div>
+{% endblock %}

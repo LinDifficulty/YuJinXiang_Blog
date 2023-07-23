@@ -1,0 +1,229 @@
+#my{
+zoom: 90%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font: 14px/1.5 "Microsoft Yahel", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Mico Hei", sans-serif;
+    color: #333;
+    margin: 0 auto;
+    background-color: #f3f5f7;
+    /* display: flex; */
+    height: 750px;
+    width: 1500px;
+    margin-top: 10px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* 侧边栏 */
+.sidebar {
+    width: 200px;
+    /* height: 650px; */
+    background-color: #daa9ff;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-top: 50px;
+    position: fixed;
+}
+
+.sidebar .photo {
+    text-align: center;
+}
+
+.sidebar .photo img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.sidebar h1 {
+    font-weight: 400;
+    text-align: center;
+}
+
+.sidebar ul {
+    padding-top: 10px;
+}
+
+.sidebar li {
+    background-color: #f5ccff;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 20px;
+}
+
+.sidebar li a {
+    height: 100%;
+    display: block;
+    width: 100%;
+    background-color: rgba(#fff, green, blue, 1);
+
+}
+
+.sidebar li:nth-child(1) a {
+    color: #000000;
+    border-radius: 20px;
+}
+
+.sidebar li a:hover {
+    color: #000000;
+    background-color: #fff;
+    border-radius: 20px;
+}
+/* 导航栏 */
+.nav {
+    display: flex;
+    background-color: #98fde5;
+    height: 50px;
+    width: 1500px;
+    line-height: 50px;
+    border-radius: 12px;
+    margin-left: 10px;
+    margin-top: -10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: fixed;
+}
+
+.nav .hd {
+    margin: 0 50px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.nav .hd:hover {
+    color: #eaa0ea;
+}
+/* 扩展 */
+.nav .box{
+    width: 850px;
+
+}
+/* 搜索 */
+.search{
+    width: 200px;
+    height: 50px;
+    /* background-color: #fff; */
+    display: inline-block;
+}
+.search-input {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.search-input:focus,
+.search-input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-input::placeholder {
+    color: #777;
+}
+
+.search-input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+.nav form .button-search{
+    width: 70px;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #dcfcf5;
+}
+.nav form .button-search:hover{
+    border: 3px solid #eaa0ea;
+}
+.nav .login{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 50px;
+    margin-top: 10px;
+}
+.nav .login a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../uploads/个人头像.png);
+    border-radius: 50%;
+}
+
+.button-post {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(199, 243, 68);
+  border: 2px solid rgb(199, 243, 68);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.button-post::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(199, 243, 68);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button-post:hover::before {
+  scale: 3;
+}
+
+.button-post:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgb(199, 243, 68);
+}
+
+.button-post:active {
+  scale: 1;
+}
+
+.public-post {
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+

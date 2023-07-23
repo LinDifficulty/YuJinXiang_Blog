@@ -1,0 +1,64 @@
+{% extends "front/base.html" %}
+{% block title %}文章发布{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/CSS/post.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}"/>
+    <script src="{{ url_for('static',filename='front/js/jquery.3.6.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
+
+{% endblock %}
+
+{% block body %}
+    <div class="passage">
+        {% if not post %}
+            6666666666
+        {% endif %}
+        <h1>发布帖子</h1>
+        <form action="{{ url_for('front.edit_post_post') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="left">
+                <h2>标题：</h2>
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <input placeholder="请输入标题" class="input" name="new_title" type="text" value="{{ post.title }}">
+            </div>
+            <div class="right">
+                <h2>板块：</h2>
+                <select name="board_id">
+                    {% for board in boards %}
+                        <option value="{{ board.id }}">{{ board.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="passage-page">
+                <div class="editormd" id="article-content">
+                    <textarea class="editormd-markdown-textarea" name="new_content" id="new_content"
+                              style="display: none">{{ post.content }}</textarea>
+                </div>
+            </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="error-message">
+                        <ul>
+                            {% for message in messages %}
+                                <li class="text-danger">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="buttons">
+                <button class="btn" id="submit-btn"><span></span>
+                    <p data-start="good luck!" data-text="上传" data-title="完成"></p></button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        var testEditor = editormd("article-content", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            path: "{{ url_for('static',filename='editormd/lib/') }}",
+            theme: "tomorrow-night-eighties",
+        });
+    </script>
+{% endblock %}

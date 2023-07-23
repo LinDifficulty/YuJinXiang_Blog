@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/GGBood.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/base.css') }}">
+    <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div class="nav">
+    <a href="{{ url_for('front.index') }}" class="hd">
+        <h2>Welcome to Tulip</h2>
+    </a>
+    <!-- 扩展 -->
+    <div class="box">
+        &nbsp;
+    </div>
+    <form action="{{ url_for('front.index') }}">
+            <span class="search">
+                <input placeholder="请输入关键字" type="text" class="search-input" name="q">
+            </span>
+        <button class="button-search">搜索</button>
+    </form>
+    <span class="login">
+        {% if user %}
+            <a href="{{ url_for("user.logout") }}"><img
+                    src="{{ url_for('static', filename='images/logout.png') }}" style="height: 30px;"></a>
+        {% else %}
+            <a href="{{ url_for("user.login") }}"><img
+                    src="{{ url_for('static', filename='images/个人头像.png') }}"></a>
+        {% endif %}
+    </span>
+</div>
+<!-- 侧边栏 -->
+<span class="bd">
+        <div class="sidebar">
+            <p class="photo"><img src="{{ url_for('static', filename='uploads/GGBood.jpg') }}"></p>
+            <h1>郁金香</h1>
+            <div class="public-post">
+            {% if user %}
+                <form action="{{ url_for('front.public_post') }}">
+                <button class="button-post">发布文章</button></form>
+            {% endif %}
+            </div>
+            <ul>
+                {% if not current_board %}
+                    <li style="background-color: #FFFFFF"><a href="/">全部</a></li>
+                {% else %}
+                    <li><a href="/">全部</a></li>
+                {% endif %}
+                {% for board in boards %}
+                    {% if board.id == current_board %}
+                        <li style="background-color: #FFFFFF"><a
+                                href="{{ url_for('front.index',board_id=board.id) }}">{{ board.name }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('front.index',board_id=board.id) }}">{{ board.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </span>
+
+
+<!-- 界面内容 -->
+{% block body %}
+{% endblock %}
+</body>
+
+</html>

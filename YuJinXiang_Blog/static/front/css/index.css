@@ -1,0 +1,147 @@
+/* 首页*/
+/* 版心 */
+body{
+    background-color: #f3f5f7;
+    /* display: flex; */
+    height: 750px;
+    width: 1500px;
+}
+
+/* 内容 */
+.passage{
+    margin-top: 10px;
+    margin-left: 230px;
+}
+.passage .passage-box{
+    width: 100%;
+    height: 1800px;
+    background-color: #fff5ee;
+    border-radius: 15px;
+    padding: 30px;
+}
+.passage .ul1{
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* margin-left: 200px; */
+}
+.passage .li1{
+    padding: 20px 20px;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 3px 2px  rgb(201, 197, 197);
+}
+.passage .li1:hover{
+    /* transform: scale(1.1); */
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.passage .li1:nth-child(2n) {
+    width: 500px;
+    height: 300px;
+    background-color: #96fb4e;
+    margin-bottom: 40px;
+    border-radius: 20px;
+}
+.passage .li1:nth-child(2n-1){
+    width: 500px;
+    height: 300px;
+    background-color: #ffbcc4;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.passage .li1 h1{
+    text-align: center;
+    line-height: 80px;
+    transition: all 0.5s;
+}
+.passage .li1 h1:hover{
+    transform: scale(1.15);
+}
+/* .passage li .passage-top,
+.passage li .passage-bottom{
+    display: flex;
+    justify-content: space-between;
+    line-height: 16px;
+    padding: 0 70px;
+} */
+.passage .passage-top{
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 16px;
+}
+.passage .passage-bottom{
+    display: flex;
+    justify-content: space-between;
+    line-height: 16px;
+    padding: 0 60px;
+}
+.passage .li1 .passage-top span{
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+}
+.passage .li1 .passage-bottom span{
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+}
+.passage .li1 .passage-top a,
+.passage .li1 .passage-bottom a{
+    color: rgb(126, 169, 242);
+}
+.passage .li1 img{
+    display: block;
+    float: left;
+    margin-top: 2px;
+}
+.passage .passage-body{
+    margin-top: 20px;
+    font-size: 16px;
+    text-indent: 2em;
+}
+
+.passage-box .page{
+    display: flex;
+    margin-left: 300px;
+    margin-top: -35px;
+}
+.passage-box .page a{
+    display: inline-block;
+    padding: 10px;
+    margin: 0 3px;
+    border: 1px solid #a7a9ab;
+    border-radius: 10px;
+    height: 30px;
+    line-height: 10px;
+    text-align: center;
+    background-color: #e3f74b;
+}
+.passage-box .page a:hover{
+    background-color:#f0fe85;
+}
+.passage-box .page input{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.passage-box .page span{
+    font-weight: 600;
+}
+.passage-box .page button{
+    border-radius: 10px;
+    width: 40px;
+    height: 30px;
+    background-color: #e3f74b;
+}
+.passage-box .page button:hover{
+    background-color: #f0fe85;
+}
+
+.page ul {
+    display: flex;
+}
