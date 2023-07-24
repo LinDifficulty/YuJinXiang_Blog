@@ -1,5 +1,5 @@
-#my{
-zoom: 90%;
+#my {
+    zoom: 90%;
 }
 
 * {
@@ -16,7 +16,7 @@ body {
     font: 14px/1.5 "Microsoft Yahel", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Mico Hei", sans-serif;
     color: #333;
     margin: 0 auto;
-    background-color: #f3f5f7;
+    background-color: #f2f4fb;
     /* display: flex; */
     height: 750px;
     width: 1500px;
@@ -67,14 +67,18 @@ a {
     text-align: center;
     line-height: 50px;
     border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.sidebar li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0px 5px #eefd1b;
 }
 
 .sidebar li a {
     height: 100%;
     display: block;
     width: 100%;
-    background-color: rgba(#fff, green, blue, 1);
-
 }
 
 .sidebar li:nth-child(1) a {
@@ -87,6 +91,7 @@ a {
     background-color: #fff;
     border-radius: 20px;
 }
+
 /* 导航栏 */
 .nav {
     display: flex;
@@ -95,12 +100,13 @@ a {
     width: 1500px;
     line-height: 50px;
     border-radius: 12px;
-    margin-left: 10px;
     margin-top: -10px;
     flex-wrap: wrap;
     flex-direction: column;
     margin-bottom: 10px;
     position: fixed;
+    z-index: 9999;
+    overflow: hidden;
 }
 
 .nav .hd {
@@ -112,18 +118,34 @@ a {
 .nav .hd:hover {
     color: #eaa0ea;
 }
-/* 扩展 */
-.nav .box{
-    width: 850px;
 
+/* 扩展 */
+.nav .box {
+    width: 850px;
 }
+
+.nav .box .box-a {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.nav .box .box-a:hover {
+    color: blue;
+    transform: scale(1.1);
+}
+
 /* 搜索 */
-.search{
+.search {
     width: 200px;
     height: 50px;
     /* background-color: #fff; */
     display: inline-block;
 }
+
 .search-input {
     line-height: 28px;
     border: 2px solid transparent;
@@ -152,7 +174,8 @@ a {
     opacity: 0;
     transition: opacity .3s;
 }
-.nav form .button-search{
+
+.nav form .button-search {
     width: 70px;
     height: 30px;
     margin-left: 5px;
@@ -160,10 +183,12 @@ a {
     border: 0;
     background-color: #dcfcf5;
 }
-.nav form .button-search:hover{
+
+.nav form .button-search:hover {
     border: 3px solid #eaa0ea;
 }
-.nav .login{
+
+.nav .login {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -171,54 +196,54 @@ a {
     line-height: 50px;
     margin-top: 10px;
 }
-.nav .login a{
+
+.nav .login a {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url(../uploads/个人头像.png);
     border-radius: 50%;
 }
 
 .button-post {
-  cursor: pointer;
-  position: relative;
-  padding: 10px 24px;
-  font-size: 18px;
-  color: rgb(199, 243, 68);
-  border: 2px solid rgb(199, 243, 68);
-  border-radius: 34px;
-  background-color: transparent;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: #eefd1b;
+    border: 2px solid #eefd1b;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
 }
 
 .button-post::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  border-radius: inherit;
-  scale: 0;
-  z-index: -1;
-  background-color: rgb(199, 243, 68);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #eefd1b;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .button-post:hover::before {
-  scale: 3;
+    scale: 3;
 }
 
 .button-post:hover {
-  color: #212121;
-  scale: 1.1;
-  box-shadow: 0 0px 20px rgb(199, 243, 68);
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px #eefd1b;
 }
 
 .button-post:active {
-  scale: 1;
+    scale: 1;
 }
 
 .public-post {
@@ -226,4 +251,9 @@ a {
     margin-top: 20px;
 }
 
-
+.bottom {
+    height: 40px;
+    background-color: #98fde5;
+    text-align: center;
+    line-height: 40px;
+}

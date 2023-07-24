@@ -119,3 +119,13 @@ def edit_post_post():
     db.session.commit()
     post = PostModel.query.get(post_id)
     return render_template("front/detail.html", post=post, boards=boards)
+
+
+@bp.route("/resource")
+def resource():
+    return render_template("front/resource.html")
+
+
+@bp.route("/friends")
+def friends():
+    return render_template("front/friends.html")

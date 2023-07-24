@@ -1,7 +1,6 @@
 class BaseConfig:
     SECRET_KEY = "zyssj"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
     PER_PAGE_COUNT = 10
 
 

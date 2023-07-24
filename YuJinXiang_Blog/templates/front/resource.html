@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/GGBood.ico') }}" type="image/x-icon">
+    <title>资源导航</title>
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename=('front/css/base.css')) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename=('front/css/resource.css')) }}">
+
+<body>
+<div class="nav" style="margin-top: -10px; position: fixed">
+    <a style="text-decoration:none;" href="{{ url_for('front.index') }}" class="hd">
+        <h2 style="font-size: 1.5em;margin: 0 auto;font-weight: 700;">YuJinXiang_Blog</h2>
+    </a>
+</div>
+<div class="passage">
+    {#  图片统一3：2比例  #}
+    <h1>后端开发</h1>
+    <ul class="ul">
+        <li class="li">
+            <a href="https://www.python.org/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Python.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Python</p>
+                        <p class="card__description">Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆于1990年代初设计，作为一门叫做ABC语言的替代品。
+                            Python提供了高效的高级数据结构，还能简单有效地面向对象编程。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.jetbrains.com/zh-cn/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Jetbrains.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Jetbrains</p>
+                        <p class="card__description">JetBrains是一家捷克的软件开发公司,旗下软件有Pycharm、IntelliJ
+                            IDEA等知名开发软件</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://flask.net.cn/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Flask.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Flask</p>
+                        <p class="card__description">Flask是一个使用 Python 编写的轻量级 Web 应用框架。其 WSGI 工具箱采用
+                            Werkzeug ，模板引擎则使用 Jinja2 。Flask使用 BSD 授权。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.mysql.com/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/MySQL.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">MySQL</p>
+                        <p class="card__description">MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle
+                            旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS
+                            应用软件之一。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://redis.io/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Redis.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Redis</p>
+                        <p class="card__description">Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用ANSI
+                            C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.sqlalchemy.org/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/SQLAlchemy.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">SQLAlchemy</p>
+                        <p class="card__description">
+                            SQLAlchemy是Python编程语言下的一款开源软件。提供了SQL工具包及对象关系映射（ORM）工具，使用MIT许可证发行。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.navicat.com.cn/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Navicat.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Navicat</p>
+                        <p class="card__description">
+                            “Navicat”是一套可创建多个连接的数据库管理工具，用以方便管理
+                            MySQL、Oracle、PostgreSQL、SQLite、SQL Server、MariaDB 和 MongoDB 等不同类型的数据库</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.postman.com/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Postman.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Postman</p>
+                        <p class="card__description">
+                            Postman是一个接口测试工具，可以模拟各种HTTP请求并发送请求数据至服务端，获取响应结果并验证结果是否匹配预期值。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://github.com/LinDifficulty/YuJinXiang_Blog" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Github.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Github</p>
+                        <p class="card__description">
+                            GitHub是一个面向开源及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。<br>本项目已上传Github
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <h1>算法</h1>
+    <ul class="ul">
+        <li class="li">
+            <a href="https://codeforces.com/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/codeforces.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">CodeForces</p>
+                        <p class="card__description">
+                            非常知名的算法竞赛竞技平台</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/niuke.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">牛客竞赛</p>
+                        <p class="card__description">
+                            牛客竞赛</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.luogu.com.cn/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/luogu.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">洛谷</p>
+                        <p class="card__description">
+                            洛谷竞赛</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://pintia.cn/home" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/PTA.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">PTA</p>
+                        <p class="card__description">
+                            程序设计类实验辅助教学平台</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <h1>前端开发</h1>
+    <ul class="ul">
+        <li class="li">
+            <a href="http://editor.md.ipandao.com/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Editormd.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Editor.md</p>
+                        <p class="card__description">
+                            开源在线 Markdown 编辑器</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <h1>本网站开发所使用的Python库</h1>
+    <ul class="ul">
+        <li class="li">
+            <a href="https://pypi.org/project/pymysql/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Flask-Python.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Pymysql</p>
+                        <p class="card__description">
+                            PyMySQL是从Python连接到MySQL数据库服务器的接口,
+                            简单理解就是,Pymysql是python操作mysql数据库的三方模块。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://pypi.org/project/Flask-Migrate/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Flask-Python.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Flask-Migrate</p>
+                        <p class="card__description">
+                            Flask Migrate是一个使用Alembic为Flask应用程序处理SQLAlchemy数据库迁移的扩展。数据库操作作为flask
+                            db命令下的命令行参数提供。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://pypi.org/project/Faker/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Flask-Python.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Faker</p>
+                        <p class="card__description">
+                            Faker是一个Python包，它为您生成假数据。无论您是需要引导数据库、创建好看的XML文档、填写持久性以对其进行压力测试，
+                            还是需要匿名化从生产服务中获取的数据，Faker都适合您。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://pypi.org/project/cache3/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/resource_logo/Flask-Python.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">Cacha</p>
+                        <p class="card__description">
+                            cache3是麻省理工学院授权的安全轻量级缓存库，使用纯Python编写。</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -19,7 +19,9 @@
     </a>
     <!-- 扩展 -->
     <div class="box">
-        &nbsp;
+        <a class="box-a" href="{{ url_for('front.resource') }}" target="_blank">资源导航</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="box-a" href="{{ url_for('front.friends') }}" target="_blank">友情链接</a>
     </div>
     <form action="{{ url_for('front.index') }}">
             <span class="search">
@@ -41,7 +43,7 @@
 <span class="bd">
         <div class="sidebar">
             <p class="photo"><img src="{{ url_for('static', filename='uploads/GGBood.jpg') }}"></p>
-            <h1>郁金香</h1>
+            <h1>{{ user.username }}</h1>
             <div class="public-post">
             {% if user %}
                 <form action="{{ url_for('front.public_post') }}">
@@ -70,6 +72,10 @@
 <!-- 界面内容 -->
 {% block body %}
 {% endblock %}
+
+<div class="bottom">
+    <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">备案号12345648971231</a>
+</div>
 </body>
 
 </html>

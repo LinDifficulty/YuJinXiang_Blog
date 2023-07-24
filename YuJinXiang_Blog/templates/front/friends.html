@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/GGBood.ico') }}" type="image/x-icon">
+    <title>资源导航</title>
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename=('front/css/base.css')) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename=('front/css/friends.css')) }}">
+
+<body>
+<div class="nav" style="margin-top: -10px; position: fixed">
+    <a style="text-decoration:none;" href="{{ url_for('front.index') }}" class="hd">
+        <h2 style="font-size: 1.5em;margin: 0 auto;font-weight: 700;">YuJinXiang_Blog</h2>
+    </a>
+</div>
+<div class="passage">
+    {#  图片统一3：2比例  #}
+    <h1>友情链接</h1>
+    <ul class="ul">
+        <li class="li">
+            <a href="https://jcg2023.top/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/jcg.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">- JCG -</p>
+                        <p class="card__description">请让我们再强大一点，至少可以支撑得起自己的灵魂</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://lys2021.com/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/lys.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">-浪漫主义狗-</p>
+                        <p class="card__description">妄想成为摆烂王的大佬</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="li">
+            <a href="https://www.yuque.com/spumante/" target="_blank">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/xhz.png') }}" height="200px"
+                         width="300px">
+                    <div class="card__content">
+                        <p class="card__title">-Spumante-</p>
+                        <p class="card__description">一名妄想考上研究生的大学牲</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -9,25 +9,28 @@ from models.user import UserModel
 
 bp = Blueprint('user', __name__, url_prefix='/user')
 
-
+# 这里是注册功能的开关
 @bp.route("/register", methods=['POST', 'GET'])
 def register():
-    if request.method == 'GET':
-        return render_template("front/register.html")
-    else:
-        form = RegisterForm(request.form)
-        if form.validate():
-            email = form.email.data
-            username = form.username.data
-            password = form.password.data
-            user = UserModel(email=email, username=username, password=password)
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for("user.login"))
-        else:
-            for message in form.messages:
-                flash(message)
-            return redirect(url_for("user.register"))
+    return redirect("/")
+# @bp.route("/register", methods=['POST', 'GET'])
+# def register():
+#     if request.method == 'GET':
+#         return render_template("front/register.html")
+#     else:
+#         form = RegisterForm(request.form)
+#         if form.validate():
+#             email = form.email.data
+#             username = form.username.data
+#             password = form.password.data
+#             user = UserModel(email=email, username=username, password=password)
+#             db.session.add(user)
+#             db.session.commit()
+#             return redirect(url_for("user.login"))
+#         else:
+#             for message in form.messages:
+#                 flash(message)
+#             return redirect(url_for("user.register"))
 
 
 @bp.route("/mail/captcha")

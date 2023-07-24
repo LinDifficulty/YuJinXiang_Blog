@@ -1,7 +1,7 @@
 .passage {
     width: 85%;
     background-color: #86ef69;
-    margin-left: 220px;
+    margin-left: 210px;
     margin-top: 10px;
     margin-bottom: 30px;
     padding: 50px 200px 10px 0;
@@ -9,14 +9,14 @@
 }
 
 .passage .left {
-    width: 200px;
+    width: 180px;
     min-height: 300px;
     background-color: #fff;
     position: fixed;
-    margin-left: 30px;
+    margin-left: 5px;
     margin-top: 160px;
     border-radius: 20px;
-    padding: 30px 40px;
+    padding: 20px 20px;
 
 }
 
@@ -29,7 +29,7 @@
     background-color: #fff;
     border-radius: 20px;
     padding: 30px 50px 50px;
-    margin-left: 250px;
+    margin-left: 190px;
     min-height: 1000px;
 }
 
@@ -99,4 +99,32 @@
 
 .passage .left .button-delete:hover {
     color: #e66ffb;
+}
+
+.passage .right {
+    width: 215px;
+    min-height: 300px;
+    background-color: #fff;
+    position: fixed;
+    margin-left: 1053px;
+    margin-top: 150px;
+    border-radius: 20px;
+    padding: 20px 20px;
+
+}
+
+.passage .right:hover {
+    box-shadow: 0 0 3px 3px rgba(117, 115, 115, 0.5);
+
+}
+
+.passage .right a {
+    display: inline-block;
+    line-height: 2em;
+    transition: font-size 0.3s;
+}
+
+.passage .right a:hover {
+    transform: scale(1.2);
+    /*border: 1px dashed #a7a9ab;*/
 }

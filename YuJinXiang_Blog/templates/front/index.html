@@ -10,7 +10,7 @@
             <ul class="ul1">
                 {% for post in posts %}
                     <li class="li1">
-                        <a href="{{ url_for("front.post_detail", post_id=post.id) }}">
+                        <a href="{{ url_for("front.post_detail", post_id=post.id) }}" target="_blank">
                             <h1>{{ post.title }}</h1>
                         </a>
                         <div class="passage-top">
@@ -24,9 +24,6 @@
                                        alt="">发表时间：{{ post.create_time }}</span>
                             <span><img src="{{ url_for('static',filename='images/书.png') }}"
                                        alt="">&nbsp;阅读量：{{ post.read_count }}</span>
-                        </div>
-                        <div class="passage-body">
-                            {{ post.content|truncate(length=200) }}......
                         </div>
                     </li>
                 {% endfor %}

@@ -20,48 +20,66 @@
                 height: "500px",
                 readOnly: true,
                 path: "/static/editormd/lib/",
+                tocContainer: '#article-toc',
                 editor: false,
-                watch: true
+                watch: true,
+                autoHeight: true,
+                tocDropdown: false,
+                emoji: true,
+                taskList: true,
+                tex: true,  // 默认不解析
+                flowChart: true,  // 默认不解析
+                sequenceDiagram: true  // 默认不解析
             });
         });
+        const tocLink = document.querySelectorAll('a[level]')	//目录的每一项就是一个包含level属性的a标签
+        tocLink.forEach((item) => {
+            const level = parseInt(item.getAttribute('level'))
+            item.style.paddingLeft = (level - 1) * 10 + 'px'	//利用level属性的值设置左padding
+        })
     </script>
 {% endblock %}
 
 {% block body %}
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <div class="passage">
-        <div class="left">
-            <h2><img src="{{ url_for('static', filename='uploads/头像 男孩.png') }}" alt=""></h2>
-            <div class="detail">
-                <div><img src="{{ url_for('static', filename='images/作者.png') }}" alt="">
-                    作者：{{ post.author.username }}</div>
-                <div><img src="{{ url_for('static', filename='images/标签1.png') }}" alt="">&nbsp;板块：<a
-                        href="{{ url_for("front.index",board_id=post.board.id) }}">{{ post.board.name }}</a></div>
-                <div><img src="{{ url_for('static', filename='images/date.png') }}"
-                          alt="">&nbsp;发布时间：<br>{{ post.create_time }}</div>
-                <div><img src="{{ url_for('static', filename='images/书.png') }}"
-                          alt="">&nbsp;阅读量：{{ post.read_count }}</div>
-            </div>
-
-            {% if user and user.id == post.author_id or user.is_staff %}
-                <div class="button">
-                    <form action="{{ url_for('front.edit_post') }}" method="post">
-                        <input type="hidden" name="post_id" value="{{ post.id }}">
-                        <button class="button-edit">编辑
-                        </button>
-                    </form>
-                    <form action="{{ url_for('front.delete_post') }}" method="post">
-                        <input type="hidden" name="post_id" value="{{ post.id }}">
-                        <button class="button-delete">删除
-                        </button>
-                    </form>
+    <div>
+        <div class="passage">
+            <div class="left">
+                <h2><img src="{{ url_for('static', filename='uploads/头像 男孩.png') }}" alt=""></h2>
+                <div class="detail">
+                    <div><img src="{{ url_for('static', filename='images/作者.png') }}" alt="">
+                        作者：{{ post.author.username }}</div>
+                    <div><img src="{{ url_for('static', filename='images/标签1.png') }}" alt="">&nbsp;板块：<a
+                            href="{{ url_for("front.index",board_id=post.board.id) }}">{{ post.board.name }}</a></div>
+                    <div><img src="{{ url_for('static', filename='images/date.png') }}"
+                              alt="">&nbsp;发布时间：<br>{{ post.create_time }}</div>
+                    <div><img src="{{ url_for('static', filename='images/书.png') }}"
+                              alt="">&nbsp;阅读量：{{ post.read_count }}</div>
                 </div>
-            {% endif %}
-        </div>
-        <div class="note">
-            <h1>{{ post.title }}</h1>
-            <div id="test-editor">
-                <textarea style="display:none;">{{ post.content }}</textarea>
+
+                {% if user and user.id == post.author_id or user.is_staff %}
+                    <div class="button">
+                        <form action="{{ url_for('front.edit_post') }}" method="post">
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <button class="button-edit">编辑
+                            </button>
+                        </form>
+                        <form action="{{ url_for('front.delete_post') }}" method="post">
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <button class="button-delete">删除
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="right">
+                <div id="article-toc"></div>
+            </div>
+            <div class="note">
+                <h1>{{ post.title }}</h1>
+                <div id="test-editor">
+                    <textarea style="display:none;">{{ post.content }}</textarea>
+                </div>
             </div>
         </div>
     </div>

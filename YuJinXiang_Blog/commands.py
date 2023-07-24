@@ -56,7 +56,7 @@ def create_test_post():
     boards = BoardModel.query.all()
 
     click.echo("开始生成测试帖子....")
-    for x in range(10000):
+    for x in range(1000):
         title = fake.sentence()
         content = fake.paragraph(nb_sentences=10)
         random_index = random.randint(0, 2)

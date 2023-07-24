@@ -10,9 +10,6 @@
 
 {% block body %}
     <div class="passage">
-        {% if not post %}
-            6666666666
-        {% endif %}
         <h1>发布帖子</h1>
         <form action="{{ url_for('front.edit_post_post') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
