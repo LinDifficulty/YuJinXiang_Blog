@@ -5,7 +5,7 @@
     padding-left: 2em;
     padding-right: 2em;
     padding-bottom: 0.4em;
-    background-color: #f5ccff;
+    background-color: #9fb4ffaa;
     border-radius: 25px;
     transition: .4s ease-in-out;
 }
@@ -111,4 +111,12 @@
 .login {
     width: 400px;
     margin: 0 auto;
+    min-height: 920px;
+}
+
+.bottom {
+    height: 40px;
+    background-color: #98fde5;
+    text-align: center;
+    line-height: 40px;
 }

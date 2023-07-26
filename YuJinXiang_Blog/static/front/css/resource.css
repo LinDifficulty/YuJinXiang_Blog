@@ -83,3 +83,10 @@
   color: #777;
   line-height: 1.4;
 }
+
+.bottom {
+    height: 40px;
+    background-color: #98fde5;
+    text-align: center;
+    line-height: 40px;
+}

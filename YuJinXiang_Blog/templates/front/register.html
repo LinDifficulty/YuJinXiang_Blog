@@ -8,11 +8,10 @@
 </head>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="{{ url_for('static', filename='images/GGBood.ico') }}" type="image/x-icon">
-<link rel="stylesheet" href="{{ url_for('static', filename='front/CSS/base.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='front/CSS/register.css') }}">
-<link rel="stylesheet" href="{{ url_for('static',filename='front/CSS/sign.css') }}">
-<script src="{{ url_for('static', filename='front/JS/register.js') }}"></script>
-{#<script src="{{ url_for('static', filename='front/JS/jquery.3.6.min.js') }}"></script>#}
+<link rel="stylesheet" href="{{ url_for('static', filename='front/css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='front/css/register.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='front/css/sign.css') }}">
+<script src="{{ url_for('static', filename='front/js/register.js') }}"></script>
 <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
 
 <body>
@@ -23,7 +22,7 @@
     </a>
 </div>
 <!-- 内容 -->
-<div class="login">
+<div class="register">
     <br><br><br><br>
     <form class="form" action="{{ url_for('user.register') }}" method="post" id="register-form">
         <p id="heading">注&nbsp;册</p>
@@ -70,6 +69,9 @@
         </div>
         <br>
     </form>
+</div>
+<div class="bottom">
+    <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">备案号12345648971231</a>
 </div>
 </body>
 
